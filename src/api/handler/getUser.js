@@ -1,8 +1,19 @@
 import { app } from 'api/app';
 import ioc from 'ioc';
 
-console.log(app);
 
-app.use(function *index() {
-  this.body = yield ioc.GetUserUsecase.do();
+app.route({
+  method: 'GET',
+  path: '/{id}',
+  handler: (request, reply)=>{
+    const input = {
+      id: request.params.id,
+    };
+
+    ioc.GetUserUsecase.do(input).then((output)=>{
+      return reply(output);
+    }).catch((err) => {
+      return reply(err);
+    });
+  }
 });

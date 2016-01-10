@@ -1,4 +1,4 @@
-import app from 'api/app';
+import run from 'api/app';
 import './api/handler';
 
-app();
+run();

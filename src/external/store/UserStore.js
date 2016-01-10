@@ -1,3 +1,5 @@
+import boom from 'boom';
+
 export default class UserStore {
   user;
 
@@ -5,7 +7,13 @@ export default class UserStore {
     this.user = user;
   }
 
-  getUser() {
-    return this.user.findOne();
+  async getUser(id: string) {
+    try {
+      return await this.user.findOne({
+        where: { id }
+      });
+    } catch (err) {
+      throw boom.wrap(err);
+    }
   }
 }

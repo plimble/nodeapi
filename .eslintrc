@@ -25,6 +25,7 @@
     "no-alert": 0,
     "no-script-url": 0,
     "id-length": 0,
+    "func-names": 0,
     "import/export": 0
   },
   "plugins": [
@@ -33,7 +34,7 @@
   "settings": {
     "import/parser": "babel-eslint",
     "import/resolve": {
-      moduleDirectory: ["node_modules"]
+      "moduleDirectory": ["node_modules"]
     }
   },
   "globals": {
