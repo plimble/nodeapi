@@ -1,0 +1,21 @@
+{
+  "ignore": [],
+  "presets": ["es2015-node4", "stage-1", "stage-2"],
+  "plugins": [
+    ["babel-plugin-module-alias", [
+      { "src": "./src/config.js", "expose": "config" },
+      { "src": "./src/ioc.js", "expose": "ioc" },
+      { "src": "./src/api", "expose": "api" },
+      { "src": "./src/app", "expose": "app" },
+      { "src": "./src/external", "expose": "external" }
+    ]],
+    ["typecheck", { "disable": { "production": true } }],
+    "syntax-flow",
+    "transform-flow-strip-types",
+    "syntax-async-functions",
+    ["transform-async-to-module-method", {
+      "module": "bluebird",
+      "method": "coroutine"
+    }]
+  ]
+}
